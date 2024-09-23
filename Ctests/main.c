@@ -1,14 +1,21 @@
 #include <stdio.h>
 
-int number = 16;
 int main() {
-if (number == 15)
-{
-   printf("Number is 15\n");
-}else
-{
-    printf("Number is not 15\n");
-}
-return 0;
+    // Definindo as variáveis para armazenar informações
+    char nome[50];
+    int idade;
 
+    // Coletando as informações do usuário
+    printf("Digite o seu nome: ");
+   fgets(nome, sizeof(nome), stdin); // Usa fgets para capturar strings
+
+    printf("Digite a sua idade: ");
+    scanf("%d", &idade);
+
+    // Apresentando as informações coletadas
+    printf("\nInformações recolhidas:\n");
+    printf("Nome: %s", nome);
+    printf("Idade: %i\n", idade);
+
+    return 0;
 }
