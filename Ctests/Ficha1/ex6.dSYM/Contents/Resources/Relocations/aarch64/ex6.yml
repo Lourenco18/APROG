@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/daniellourenco/development/APROG/Ctests/Ficha1/ex6'
+relocations:     []
+...
