@@ -25,7 +25,7 @@ int main() {
             valor_final = dias * diaria + taxa_maior_15 * dias;
         } else if (dias >= 8 && dias <= 15) {
             valor_final = dias * diaria + taxa_8_15 * dias;
-        } else if (dias < 8) {
+        } else {
             valor_final = dias * diaria + taxa_menor_8 * dias;
         }
 
