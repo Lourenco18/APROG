@@ -29,9 +29,26 @@ void baralharvetor(int v[], int n)
 }
 
 /// função para copiar o vetor v para o vetor w
-void copiarvetor(int v[], int w[], int n)
-{
-    for(int i=0;i<n;i++) w[i]=v[i];
+void copiarvetor(int v[], int w[], int n, int* nn) {
+    (*nn) = 0;  // Inicializa o contador de elementos únicos
+
+    for (int i = 0; i < n; i++) {
+        int repetido = 0;  // Flag para verificar se o elemento já foi copiado
+
+        // Verifica se o elemento v[i] já está em w[]
+        for (int j = 0; j < (*nn); j++) {
+            if (w[j] == v[i]) {
+                repetido = 1;
+                break;
+            }
+        }
+
+        // Se não for repetido, adiciona em w[]
+        if (!repetido) {
+            w[*nn] = v[i];
+            (*nn)++;
+        }
+    }
 }
 
 /// Um caixeiro viajante pretende visitar 9 cidades (numeradas de 1 a 9)
@@ -66,6 +83,7 @@ void vetorNatural(int v[], int n)
     
     for(int i=0;i<n;i++) v[i]=i+1;
     
+    v[5]= 1;
 }
 
 /// b)
@@ -112,7 +130,9 @@ int main()
     /// Custo da melhor solução encontrada : 34
     int w[100];
     int melhor_vetor[100];
-    copiarvetor(v,w,n);
+    int nn = 0;
+    copiarvetor(v,w,n,&nn);
+    mostrarvetor(w,nn);
     int total = 500;
     int melhor_custo = custo(v,n);
     for (int i = 0; i<total; i++){
@@ -126,6 +146,7 @@ int main()
     }
     mostrarvetor(melhor_vetor, n);
     printf("%d", melhor_custo);
+    
   
     
     getchar();
